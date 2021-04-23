@@ -59,7 +59,7 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-1.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-1.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
@@ -69,7 +69,7 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-2.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-2.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
@@ -79,7 +79,7 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-3.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-3.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
@@ -89,7 +89,7 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-4.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-4.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
@@ -99,7 +99,7 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-5.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-5.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
@@ -109,7 +109,37 @@
                     <div class="col-12 col-lg-4 m-b-20">
                         <div class="project">
                             <figure>
-                                <img class="img-cover" src="{$path.images}team-6.jpg" alt="">
+                                <img class="img-cover" src="{$path.images}team-6.jpg?v=1.1" alt="">
+                            </figure>
+                            <div class="content justify-content-end">
+                                <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 m-b-20">
+                        <div class="project">
+                            <figure>
+                                <img class="img-cover" src="{$path.images}team-7.jpg?v=1.1" alt="">
+                            </figure>
+                            <div class="content justify-content-end">
+                                <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 m-b-20">
+                        <div class="project">
+                            <figure>
+                                <img class="img-cover" src="{$path.images}team-8.jpg?v=1.1" alt="">
+                            </figure>
+                            <div class="content justify-content-end">
+                                <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 m-b-20">
+                        <div class="project">
+                            <figure>
+                                <img class="img-cover" src="{$path.images}team-9.jpg?v=1.1" alt="">
                             </figure>
                             <div class="content justify-content-end">
                                 <p class="h5"><strong class="d-block">Equipo Edifica</strong></p>

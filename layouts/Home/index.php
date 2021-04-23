@@ -238,7 +238,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.2']);
                 <div class="row">
                     <div class="col-12 col-md-8 d-flex flex-column align-items-center justify-content-center">
                         <figure class="m-0">
-                            <img src="{$path.images}team.jpg?v=1.0.1" alt="" class="img-cover">
+                            <img src="{$path.images}team.jpg?v=1.2" alt="" class="img-cover">
                         </figure>
                     </div>
                     <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
