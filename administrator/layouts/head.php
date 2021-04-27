@@ -18,7 +18,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 		<link rel="stylesheet" href="https://cdn.codemonkey.com.mx/css/valkyrie.css?v=1.0" type="text/css" media="all" />
 		<link rel="stylesheet" href="{$path.css}icons.css" type="text/css" media="all" />
-		<link rel="stylesheet" href="{$path.css}styles.css?v=1.1" type="text/css" media="all" />
+		<link rel="stylesheet" href="{$path.css}styles.css?v=1.2" type="text/css" media="all" />
 		{$dependencies.css}
 	</head>
 	<body>
@@ -26,7 +26,7 @@
 		<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
 
 		<!-- Navigation Bar-->
-		<header class="topnav d-print-none">
+		<header class="topnav d-print-none bg-light">
 			<div class="topbar-main">
 				<div class="container-fluid">
 					<!-- <figure class="logo">
@@ -41,7 +41,7 @@
 							<!-- User -->
 							<li class="list-inline-item">
 								<div class="dropmenu menu-right">
-									<button class="btn btn-b-none waves-effect waves-light"><span class="status_session"></span> <?= Session::get_value('_vkye_user') ?></button>
+									<button class="btn btn-b-none btn-light waves-effect waves-light"><span class="status_session"></span> <?= Session::get_value('_vkye_user') ?></button>
 									<div class="dropdown">
 										<?php if ( in_array('{users_read}', Session::get_value('session_permissions')) ): ?>
 											<a href="index.php?c=users">Usuarios</a>

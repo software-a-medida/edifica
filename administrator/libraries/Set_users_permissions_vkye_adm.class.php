@@ -24,6 +24,7 @@ class Set_users_permissions_vkye_adm
             'Projects/index' => ['{projects}'],
             'Projects/create' => ['{projects}'],
             'Projects/edit' => ['{projects}'],
+            'Projects/delete' => ['{projects}'],
         ];
 
         return ( isset($arr[$key]) ) ? $arr[$key] : null;

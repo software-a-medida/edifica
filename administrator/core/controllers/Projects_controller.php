@@ -558,4 +558,16 @@ class Projects_controller extends Controller
 			}
 		}
 	}
+
+	public function delete()
+	{
+		header('Content-type: application/json');
+
+		$this->model->delete_project( $_POST['id'] );
+
+		echo json_encode([
+			'status' => 'OK',
+			'redirect' => 'index.php?c=projects'
+		], JSON_PRETTY_PRINT);
+	}
 }

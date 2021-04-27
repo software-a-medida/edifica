@@ -1,4 +1,17 @@
-<?php defined('_EXEC') or die; ?>
+<?php
+defined('_EXEC') or die;
+
+// Alertify
+$this->dependencies->add(['css', '{$path.plugins}alertify/css/alertify.css']);
+$this->dependencies->add(['js', '{$path.plugins}alertify/js/alertify.js']);
+
+// Sweet Alert
+$this->dependencies->add(['css', '{$path.plugins}sweet-alert2/sweetalert2.min.css']);
+$this->dependencies->add(['js', '{$path.plugins}sweet-alert2/sweetalert2.min.js']);
+
+// Pages
+$this->dependencies->add(['js', '{$path.js}pages/projects/delete.js?v=1.0.0']);
+?>
 <main class="wrapper">
     <div class="container-fluid">
         <div class="row">

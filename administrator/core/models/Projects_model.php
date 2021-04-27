@@ -485,4 +485,13 @@ class Projects_model extends Model
 			'id' => $arr
 		]);
 	}
+
+	public function delete_project( $id = null )
+	{
+		if ( is_null($id) ) return;
+
+		return $this->database->delete('projects', [
+			'id' => $id
+		]);
+	}
 }
