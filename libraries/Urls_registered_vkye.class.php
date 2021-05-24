@@ -48,6 +48,14 @@ class Urls_registered_vkye
                 'controller' => 'Contact',
                 'method' => 'index'
             ],
+            '/blog' => [
+                'controller' => 'Blog',
+                'method' => 'list'
+            ],
+            '/articulo/%param%' => [
+                'controller' => 'Blog',
+                'method' => 'view'
+            ],
 
             '/iniciar-sesion' => [
                 'controller' => 'Pages',

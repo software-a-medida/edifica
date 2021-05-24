@@ -133,15 +133,13 @@
                     },
                     callback: function( response )
                     {
-                        container.find('.loading').remove();
-
                         if ( response.status == 'OK' )
                         {
                             let reader = new FileReader();
 
                             reader.onload = function (e)
                             {
-                                self[0].dispatchEvent( new CustomEvent('imageIsValid', {bubbles: true, detail: {self: self, image: e.target.result, token: response.token}}) )
+                                self[0].dispatchEvent( new CustomEvent('imageIsValid', {bubbles: true, detail: {self: self, container: container, image: e.target.result, token: response.token}}) )
                             };
 
                             reader.readAsDataURL(self[0].files[0]);
@@ -151,19 +149,24 @@
                         {
                             alertify.error(response.message);
 
-                            self[0].dispatchEvent( new CustomEvent('imageIsInvalid', {bubbles: true, detail: {self: self}}) )
+                            self[0].dispatchEvent( new CustomEvent('imageIsInvalid', {bubbles: true, detail: {self: self, container: container}}) )
                         }
                     }
                 });
 
                 ajax.send();
             }
+
+            setTimeout(function ()
+            {
+                container.find('.loading').remove();
+            }, 500);
         });
 
         $( document ).on('click', '.upload_image_preview > .btn[delete-elm]', function ()
         {
             let button = $(this);
-            let container = button.parents('[data-image-box-item]');
+            let container = button.parents('.upload_image_preview');
 
             swal({
                 text: '¿Deseas eliminar la imágen de la galería?',

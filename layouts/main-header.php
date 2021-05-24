@@ -33,5 +33,8 @@
         <li class="list-inline">
             <a href="/contacto" class="btn btn-link btn-light btn-block text-left">Contacto</a>
         </li>
+        <li class="list-inline">
+            <a href="/blog" class="btn btn-link btn-light btn-block text-left">Blog</a>
+        </li>
     </ul>
 </nav>
