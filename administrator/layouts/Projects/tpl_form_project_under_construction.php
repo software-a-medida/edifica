@@ -118,7 +118,71 @@
     <div class="card-body">
         <div class="row m-b-30" target-preview-gallery>
             <div class="col-12 m-b-30">
-                <h4 class="header-title m-t-0">5 - Galería.</h4>
+                <h4 class="header-title m-t-0">5 - Galería de entregas.</h4>
+                <p class="text-muted m-b-0">Agrega tantas fotos como necesites a la galería de imagenes del proyecto. Sólo se permíten imágenes típo <span class="text-danger">png, jpg y jpeg</span>, no mayores a <span class="text-danger">2Mb</span>.</p>
+            </div>
+
+            <div class="col-lg-3 m-b-20">
+                <div class="upload_image_preview">
+                    <a href="javascript:void(0);" data-add-gallery>
+                        <figure class="m-0"><img class="img-fluid" src="{$path.images}add-file.svg"></figure>
+                    </a>
+                </div>
+            </div>
+
+            <?php if ( isset($project['gallery']) ): ?>
+                <?php foreach ( $project['gallery'] as $key => $value ): ?>
+                    <div class="col-lg-3 m-b-20" data-image-box-item="true">
+                        <div class="label">
+                            <label class="upload_image_preview m-0">
+                                <figure class="m-0"><img class="img-fluid" src="{$path.root_uploads}<?= $value['image'] ?>"></figure>
+                                <button type="button" class="btn btn-block btn-danger" data-delete-image="<?= $value['id'] ?>">Eliminar</button>
+                            </label>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<div class="card m-b-30">
+    <div class="card-body">
+        <div class="row m-b-30" target-preview-gallery>
+            <div class="col-12 m-b-30">
+                <h4 class="header-title m-t-0">5 - Galería de construcciones listas.</h4>
+                <p class="text-muted m-b-0">Agrega tantas fotos como necesites a la galería de imagenes del proyecto. Sólo se permíten imágenes típo <span class="text-danger">png, jpg y jpeg</span>, no mayores a <span class="text-danger">2Mb</span>.</p>
+            </div>
+
+            <div class="col-lg-3 m-b-20">
+                <div class="upload_image_preview">
+                    <a href="javascript:void(0);" data-add-gallery>
+                        <figure class="m-0"><img class="img-fluid" src="{$path.images}add-file.svg"></figure>
+                    </a>
+                </div>
+            </div>
+
+            <?php if ( isset($project['gallery']) ): ?>
+                <?php foreach ( $project['gallery'] as $key => $value ): ?>
+                    <div class="col-lg-3 m-b-20" data-image-box-item="true">
+                        <div class="label">
+                            <label class="upload_image_preview m-0">
+                                <figure class="m-0"><img class="img-fluid" src="{$path.root_uploads}<?= $value['image'] ?>"></figure>
+                                <button type="button" class="btn btn-block btn-danger" data-delete-image="<?= $value['id'] ?>">Eliminar</button>
+                            </label>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<div class="card m-b-30">
+    <div class="card-body">
+        <div class="row m-b-30" target-preview-gallery>
+            <div class="col-12 m-b-30">
+                <h4 class="header-title m-t-0">5 - Galería de portafolio.</h4>
                 <p class="text-muted m-b-0">Agrega tantas fotos como necesites a la galería de imagenes del proyecto. Sólo se permíten imágenes típo <span class="text-danger">png, jpg y jpeg</span>, no mayores a <span class="text-danger">2Mb</span>.</p>
             </div>
 
