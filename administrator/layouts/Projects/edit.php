@@ -16,7 +16,7 @@ $this->dependencies->add(['js', '{$path.plugins}sweet-alert2/sweetalert2.min.js'
 $this->dependencies->add(['js', '{$path.plugins}tinymce/tinymce.min.js']);
 
 // Pages
-$this->dependencies->add(['js', '{$path.js}pages/projects/form.js?v=2.0.0']);
+$this->dependencies->add(['js', '{$path.js}pages/projects/form.js?v=2.0.1']);
 ?>
 <main class="wrapper">
     <div class="container-fluid">

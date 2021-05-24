@@ -5,13 +5,35 @@ $( document ).ready(function ()
 
     $("input[name='price']").mask("#,###,###.00", {reverse: true});
 
-    $( document ).on('click', '[data-add-gallery]', function ()
+    $( document ).on('click', '[data-add-gallery-deliveries]', function ()
     {
         let self = $(this);
         let content = self.parents('[target-preview-gallery]');
         let random = Math.random().toString(36).substring(7);
 
-        content.append('<div id="'+ random +'" class="col-lg-3 m-b-20" elm-generated> <div class="label"> <label class="upload_image_preview m-0"> <figure class="m-0"></figure> <button type="button" class="btn btn-block btn-danger d-none" delete-elm>Eliminar</button> <input type="file" name="gallery[]" accept="image/*" /> </label> </div> </div>');
+        content.append('<div id="'+ random +'" class="col-lg-3 m-b-20" elm-generated> <div class="label"> <label class="upload_image_preview m-0"> <figure class="m-0"></figure> <button type="button" class="btn btn-block btn-danger d-none" delete-elm>Eliminar</button> <input type="file" name="gallery_deliveries[]" accept="image/*" /> </label> </div> </div>');
+
+        $('#'+ random).find('input').trigger( "click" );
+    });
+
+    $( document ).on('click', '[data-add-gallery-ready-constructions]', function ()
+    {
+        let self = $(this);
+        let content = self.parents('[target-preview-gallery]');
+        let random = Math.random().toString(36).substring(7);
+
+        content.append('<div id="'+ random +'" class="col-lg-3 m-b-20" elm-generated> <div class="label"> <label class="upload_image_preview m-0"> <figure class="m-0"></figure> <button type="button" class="btn btn-block btn-danger d-none" delete-elm>Eliminar</button> <input type="file" name="gallery_ready_constructions[]" accept="image/*" /> </label> </div> </div>');
+
+        $('#'+ random).find('input').trigger( "click" );
+    });
+
+    $( document ).on('click', '[data-add-gallery-portfolio]', function ()
+    {
+        let self = $(this);
+        let content = self.parents('[target-preview-gallery]');
+        let random = Math.random().toString(36).substring(7);
+
+        content.append('<div id="'+ random +'" class="col-lg-3 m-b-20" elm-generated> <div class="label"> <label class="upload_image_preview m-0"> <figure class="m-0"></figure> <button type="button" class="btn btn-block btn-danger d-none" delete-elm>Eliminar</button> <input type="file" name="gallery_portfolio[]" accept="image/*" /> </label> </div> </div>');
 
         $('#'+ random).find('input').trigger( "click" );
     });

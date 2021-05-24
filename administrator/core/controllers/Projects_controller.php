@@ -47,6 +47,9 @@ class Projects_controller extends Controller
 					$post['image_content'] = ( isset($_FILES['image_content']) && !empty($_FILES['image_content']) ) ? $_FILES['image_content'] : null;
 					$post['project_croquis'] = ( isset($_FILES['project_croquis']) && !empty($_FILES['project_croquis']) ) ? $_FILES['project_croquis'] : null;
 					$post['gallery'] = ( isset($_FILES['gallery']) && !empty($_FILES['gallery']) ) ? Upload::order_array($_FILES['gallery']) : null;
+					$post['gallery_deliveries'] = ( isset($_FILES['gallery_deliveries']) && !empty($_FILES['gallery_deliveries']) ) ? Upload::order_array($_FILES['gallery_deliveries']) : null;
+					$post['gallery_ready_constructions'] = ( isset($_FILES['gallery_ready_constructions']) && !empty($_FILES['gallery_ready_constructions']) ) ? Upload::order_array($_FILES['gallery_ready_constructions']) : null;
+					$post['gallery_portfolio'] = ( isset($_FILES['gallery_portfolio']) && !empty($_FILES['gallery_portfolio']) ) ? Upload::order_array($_FILES['gallery_portfolio']) : null;
 
 					$post['name'] = ( isset($_POST['name']) && !empty($_POST['name']) ) ? $_POST['name'] : null;
 					$post['title'] = ( isset($_POST['title']) && !empty($_POST['title']) ) ? $_POST['title'] : null;
@@ -121,6 +124,21 @@ class Projects_controller extends Controller
 						/*  */ $post['gallery'] = Upload::upload_array($post['gallery'], $config_uploads);
 						else
 						/*  */ $post['gallery'] = null;
+
+						if ( !empty($post['gallery_deliveries']) )
+						/*  */ $post['gallery_deliveries'] = Upload::upload_array($post['gallery_deliveries'], $config_uploads);
+						else
+						/*  */ $post['gallery_deliveries'] = null;
+
+						if ( !empty($post['gallery_ready_constructions']) )
+						/*  */ $post['gallery_ready_constructions'] = Upload::upload_array($post['gallery_ready_constructions'], $config_uploads);
+						else
+						/*  */ $post['gallery_ready_constructions'] = null;
+
+						if ( !empty($post['gallery_portfolio']) )
+						/*  */ $post['gallery_portfolio'] = Upload::upload_array($post['gallery_portfolio'], $config_uploads);
+						else
+						/*  */ $post['gallery_portfolio'] = null;
 
 						$post['url'] = $this->security->clean_string($post['name']);
 						$post['url'] = strtolower(str_replace('_', '-', $post['url']));
@@ -298,6 +316,9 @@ class Projects_controller extends Controller
 							$post['image_content'] = ( isset($_FILES['image_content']) && !empty($_FILES['image_content']) ) ? $_FILES['image_content'] : null;
 							$post['project_croquis'] = ( isset($_FILES['project_croquis']) && !empty($_FILES['project_croquis']) ) ? $_FILES['project_croquis'] : null;
 							$post['gallery'] = ( isset($_FILES['gallery']) && !empty($_FILES['gallery']) ) ? Upload::order_array($_FILES['gallery']) : null;
+							$post['gallery_deliveries'] = ( isset($_FILES['gallery_deliveries']) && !empty($_FILES['gallery_deliveries']) ) ? Upload::order_array($_FILES['gallery_deliveries']) : null;
+							$post['gallery_ready_constructions'] = ( isset($_FILES['gallery_ready_constructions']) && !empty($_FILES['gallery_ready_constructions']) ) ? Upload::order_array($_FILES['gallery_ready_constructions']) : null;
+							$post['gallery_portfolio'] = ( isset($_FILES['gallery_portfolio']) && !empty($_FILES['gallery_portfolio']) ) ? Upload::order_array($_FILES['gallery_portfolio']) : null;
 
 							$post['name'] = ( isset($_POST['name']) && !empty($_POST['name']) ) ? $_POST['name'] : null;
 							$post['title'] = ( isset($_POST['title']) && !empty($_POST['title']) ) ? $_POST['title'] : null;
@@ -392,6 +413,21 @@ class Projects_controller extends Controller
 								/*  */ $post['gallery'] = Upload::upload_array($post['gallery'], $config_uploads);
 								else
 								/*  */ $post['gallery'] = null;
+
+								if ( !empty($post['gallery_deliveries']) )
+								/*  */ $post['gallery_deliveries'] = Upload::upload_array($post['gallery_deliveries'], $config_uploads);
+								else
+								/*  */ $post['gallery_deliveries'] = null;
+
+								if ( !empty($post['gallery_ready_constructions']) )
+								/*  */ $post['gallery_ready_constructions'] = Upload::upload_array($post['gallery_ready_constructions'], $config_uploads);
+								else
+								/*  */ $post['gallery_ready_constructions'] = null;
+
+								if ( !empty($post['gallery_portfolio']) )
+								/*  */ $post['gallery_portfolio'] = Upload::upload_array($post['gallery_portfolio'], $config_uploads);
+								else
+								/*  */ $post['gallery_portfolio'] = null;
 
 								$post['id'] = $project['id'];
 
@@ -554,6 +590,7 @@ class Projects_controller extends Controller
 					$count_slideshow['pos_portfolio'] = $this->model->count_slideshow('pos_portfolio');
 
 					echo $this->view->render($this, 'edit');
+					// print_r($project);
 				}
 			}
 		}

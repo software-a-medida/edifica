@@ -90,6 +90,48 @@ class Projects_model extends Model
 			}
 		}
 
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
+					'value' => $value['file']
+				]);
+			}
+		}
+
 		$this->database->insert('media', $media);
 
 		if ( !is_null($data['slide_home']) || !is_null($data['slide_portfolio']) )
@@ -142,6 +184,48 @@ class Projects_model extends Model
 					'table' => 'projects',
 					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
 					'var_key' => 'gallery',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
 					'value' => $value['file']
 				]);
 			}
@@ -204,6 +288,48 @@ class Projects_model extends Model
 			}
 		}
 
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($media, [
+					'id_key' => $id_project,
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
+					'value' => $value['file']
+				]);
+			}
+		}
+
 		$this->database->insert('media', $media);
 
 		if ( !is_null($data['slide_home']) || !is_null($data['slide_portfolio']) )
@@ -253,10 +379,16 @@ class Projects_model extends Model
 			{
 				$key = array_search($value['id_key'], array_column($projects, 'id'));
 
-				if ( $value['var_key'] !== 'gallery' )
-				/*  */ $projects[$key][$value['var_key']] = $value['value'];
-				else
+				if ( $value['var_key'] === 'gallery' )
 				/*  */ $projects[$key]['gallery'][] = ['id' => $value['id'], 'image' => $value['value']];
+				else if ( $value['var_key'] === 'gallery_deliveries' )
+				/*  */ $projects[$key]['gallery_deliveries'][] = ['id' => $value['id'], 'image' => $value['value']];
+				else if ( $value['var_key'] === 'gallery_ready_constructions' )
+				/*  */ $projects[$key]['gallery_ready_constructions'][] = ['id' => $value['id'], 'image' => $value['value']];
+				else if ( $value['var_key'] === 'gallery_portfolio' )
+				/*  */ $projects[$key]['gallery_portfolio'][] = ['id' => $value['id'], 'image' => $value['value']];
+				else
+				/*  */ $projects[$key][$value['var_key']] = $value['value'];
 			}
 		}
 
@@ -352,10 +484,10 @@ class Projects_model extends Model
 			]);
 		}
 
+		$gallery = [];
+
 		if ( !is_null($data['gallery']) )
 		{
-			$gallery = [];
-
 			foreach ( $data['gallery'] as $key => $value )
 			{
 				array_push($gallery, [
@@ -366,7 +498,52 @@ class Projects_model extends Model
 					'value' => $value['file']
 				]);
 			}
+		}
 
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !empty($gallery) )
+		{
 			$this->database->insert('media', $gallery);
 		}
 
@@ -405,10 +582,10 @@ class Projects_model extends Model
 			]);
 		}
 
+		$gallery = [];
+
 		if ( !is_null($data['gallery']) )
 		{
-			$gallery = [];
-
 			foreach ( $data['gallery'] as $key => $value )
 			{
 				array_push($gallery, [
@@ -419,7 +596,52 @@ class Projects_model extends Model
 					'value' => $value['file']
 				]);
 			}
+		}
 
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !empty($gallery) )
+		{
 			$this->database->insert('media', $gallery);
 		}
 
@@ -458,10 +680,10 @@ class Projects_model extends Model
 			]);
 		}
 
+		$gallery = [];
+
 		if ( !is_null($data['gallery']) )
 		{
-			$gallery = [];
-
 			foreach ( $data['gallery'] as $key => $value )
 			{
 				array_push($gallery, [
@@ -472,7 +694,52 @@ class Projects_model extends Model
 					'value' => $value['file']
 				]);
 			}
+		}
 
+		if ( !is_null($data['gallery_deliveries']) )
+		{
+			foreach ( $data['gallery_deliveries'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_deliveries',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_ready_constructions']) )
+		{
+			foreach ( $data['gallery_ready_constructions'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_ready_constructions',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !is_null($data['gallery_portfolio']) )
+		{
+			foreach ( $data['gallery_portfolio'] as $key => $value )
+			{
+				array_push($gallery, [
+					'id_key' => $data['id'],
+					'table' => 'projects',
+					'mime' => mime_content_type(Security::DS(PATH_UPLOADS . $value['file'])),
+					'var_key' => 'gallery_portfolio',
+					'value' => $value['file']
+				]);
+			}
+		}
+
+		if ( !empty($gallery) )
+		{
 			$this->database->insert('media', $gallery);
 		}
 
