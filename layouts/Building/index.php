@@ -60,7 +60,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.2']);
 
                 <div class="slideshow-projects owl-carousel owl-theme">
                     <?php foreach ($slideshows_portfolio as $key => $value): ?>
-                        <div class="item projects">
+                        <!-- <div class="item projects">
                             <div class="project" style="height: 100%;">
                                 <figure>
                                     <img src="{$path.uploads}<?= $value['image_cover'] ?>" alt="" class="img-cover">
@@ -69,7 +69,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.2']);
                                     <p class="h5"><strong class="d-block"><?= $value['name'] ?></strong></p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <?php if ( !empty($value['gallery']) ): ?>
                             <?php for ($i=0; $i < count($value['gallery']); $i++): ?>
                                 <div class="item projects">

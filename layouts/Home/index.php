@@ -192,11 +192,11 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.2']);
                     <div class="col-12 col-md-7" style="position: relative;">
                         <div class="slideshow-projects owl-carousel owl-theme">
                             <?php foreach ($slideshows_portfolio as $key => $value): ?>
-                                <div class="item">
+                                <!-- <div class="item">
                                     <figure>
                                         <img src="{$path.uploads}<?= $value['image_cover'] ?>" alt="" class="img-cover">
                                     </figure>
-                                </div>
+                                </div> -->
                                 <?php if ( !empty($value['gallery']) ): ?>
                                     <?php for ($i=0; $i < count($value['gallery']); $i++): ?>
                                         <div class="item">

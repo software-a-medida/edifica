@@ -38,7 +38,7 @@ class Home_controller extends Controller
 
 			$slideshows_portfolio[] = [
 				'image_cover' => $projects[$key]['image_cover'],
-				'gallery' => ( isset($projects[$key]['gallery']) && !empty($projects[$key]['gallery']) ) ? $projects[$key]['gallery'] : [],
+				'gallery' => ( isset($projects[$key]['gallery_portfolio']) && !empty($projects[$key]['gallery_portfolio']) ) ? $projects[$key]['gallery_portfolio'] : [],
 				'position' => $value['pos_portfolio']
 			];
 		}
