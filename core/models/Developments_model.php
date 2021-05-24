@@ -41,10 +41,16 @@ class Developments_model extends Model
 			{
 				$key = array_search($value['id_key'], array_column($projects, 'id'));
 
-				if ( $value['var_key'] !== 'gallery' )
-				/*  */ $projects[$key][$value['var_key']] = $value['value'];
-				else
+				if ( $value['var_key'] === 'gallery' )
 				/*  */ $projects[$key]['gallery'][] = $value['value'];
+				else if ( $value['var_key'] === 'gallery_deliveries' )
+				/*  */ $projects[$key]['gallery_deliveries'][] = $value['value'];
+				else if ( $value['var_key'] === 'gallery_ready_constructions' )
+				/*  */ $projects[$key]['gallery_ready_constructions'][] = $value['value'];
+				else if ( $value['var_key'] === 'gallery_portfolio' )
+				/*  */ $projects[$key]['gallery_portfolio'][] = $value['value'];
+				else
+				/*  */ $projects[$key][$value['var_key']] = $value['value'];
 			}
 		}
 

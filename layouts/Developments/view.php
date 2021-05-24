@@ -88,11 +88,55 @@ function map()
                 </div>
             </div>
         </section>
-        <?php if ( !empty($project['gallery']) ) : ?>
+        <?php if ( !empty($project['gallery_deliveries']) ) : ?>
             <section class="p-t-50 p-b-50">
                 <div class="container-fluid" style="position: relative;">
+                    <h1 class="text-uppercase font-20 text-center" style="color: #979797;">Galería de entregas.</h1>
+
                     <div class="slideshow-projects owl-carousel owl-theme">
-                        <?php foreach ( $project['gallery'] as $value ): ?>
+                        <?php foreach ( $project['gallery_deliveries'] as $value ): ?>
+                            <div class="item">
+                                <figure>
+                                    <img src="{$path.uploads}<?= $value ?>" alt="" class="img-cover">
+                                </figure>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div id="slideshow-projects-buttons" class="owl-controls">
+                        <button class="prev"><i class="fa fa-angle-left"></i></button>
+                        <button class="next"><i class="fa fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
+        <?php if ( !empty($project['gallery_ready_constructions']) ) : ?>
+            <section class="p-t-50 p-b-50">
+                <div class="container-fluid" style="position: relative;">
+                    <h1 class="text-uppercase font-20 text-center" style="color: #979797;">Construciones listas.</h1>
+
+                    <div class="slideshow-projects owl-carousel owl-theme">
+                        <?php foreach ( $project['gallery_ready_constructions'] as $value ): ?>
+                            <div class="item">
+                                <figure>
+                                    <img src="{$path.uploads}<?= $value ?>" alt="" class="img-cover">
+                                </figure>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div id="slideshow-projects-buttons" class="owl-controls">
+                        <button class="prev"><i class="fa fa-angle-left"></i></button>
+                        <button class="next"><i class="fa fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
+        <?php if ( !empty($project['gallery_portfolio']) ) : ?>
+            <section class="p-t-50 p-b-50">
+                <div class="container-fluid" style="position: relative;">
+                    <h1 class="text-uppercase font-20 text-center" style="color: #979797;">Portafolio</h1>
+
+                    <div class="slideshow-projects owl-carousel owl-theme">
+                        <?php foreach ( $project['gallery_portfolio'] as $value ): ?>
                             <div class="item">
                                 <figure>
                                     <img src="{$path.uploads}<?= $value ?>" alt="" class="img-cover">
