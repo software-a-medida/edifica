@@ -12,10 +12,11 @@ class Home_controller extends Controller
 	{
 		define('_title', '{$vkye_webpage} by codemonkey.com.mx');
 
-		global $slideshows_home, $slideshows_portfolio, $projects_sale, $projects_under_construction, $projects_finished;
+		global $slideshows_home, $slideshows_portfolio, $projects_sale, $projects_under_construction, $projects_finished, $get_photo_team;
 
 		$slideshows = $this->model->get_slideshows();
 		$projects = $this->model->get_projects();
+		$get_photo_team = $this->model->get_photo_team()[0];
 
 		$slideshows_home = [];
 		$slideshows_portfolio = [];

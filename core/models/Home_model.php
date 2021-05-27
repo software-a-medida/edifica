@@ -80,4 +80,12 @@ class Home_model extends Model
 
 		return $projects;
 	}
+
+	public function get_photo_team()
+	{
+		return $this->database->select('media', 'value', [
+			'var_key' => 'team',
+			'LIMIT' => 1
+		]);
+	}
 }

@@ -32,6 +32,12 @@ class Dashboard_menu
         }
 
         $menu[] = [
+            'name' => 'Configuraciones',
+            'url' => 'index.php?c=settings',
+            'icon' => 'dripicons-gear'
+        ];
+
+        $menu[] = [
             'name' => 'Ver sitio web',
             'url' => '../',
             "target" => "_blank",
