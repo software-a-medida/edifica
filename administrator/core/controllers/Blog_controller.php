@@ -30,6 +30,8 @@ class Blog_controller extends Controller
 		$post['sm_description'] = ( isset($_POST['sm_description']) && !empty($_POST['sm_description']) ) ? $_POST['sm_description'] : null;
 		$post['sm_image_cover'] = ( isset($_FILES['sm_image_cover']) && !empty($_FILES['sm_image_cover']) ) ? $_FILES['sm_image_cover'] : null;
 
+		$post['slide_home'] = ( isset($_POST['slide_home']) && !empty($_POST['slide_home']) ) ? $_POST['slide_home'] : null;
+
 		$labels = [];
 
 		if ( is_null($post['title']) || strlen($post['title']) < 5 )
@@ -104,9 +106,12 @@ class Blog_controller extends Controller
 		}
 		else
 		{
-			global $categories;
+			global $categories, $count_slideshow;
 
+			$count_slideshow['pos_home'] = $this->model->count_slideshow('pos_home');
 			$categories = $this->model->get_categories();
+
+			// print_R($count_slideshow['pos_home']);
 
 			define('_title', 'Crear nuevo artículo en el blog - {$vkye_webpage}');
 			echo $this->view->render($this, 'new');
@@ -157,10 +162,11 @@ class Blog_controller extends Controller
 				}
 				else
 				{
-					global $categories, $article;
+					global $categories, $article, $count_slideshow;
 
 					$categories = $this->model->get_categories();
 					$article = $response;
+					$count_slideshow['pos_home'] = $this->model->count_slideshow('pos_home');
 
 					define('_title', $article['title'][Configuration::$lang_default] .' - {$vkye_webpage}');
 					echo $this->view->render($this, 'update');

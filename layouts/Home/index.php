@@ -24,14 +24,20 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.2']);
                         </figure>
                         <div class="container-fluid">
                             <div class="content text-center">
-                                <?php if ( !is_null($value['project_logotype']) ): ?>
-                                    <figure class="figure-img">
-                                        <img src="{$path.uploads}<?= $value['project_logotype'] ?>" alt="" class="img-fluid m-l-auto m-r-auto" style="width: 350px;">
-                                    </figure>
-                                <?php endif; ?>
+                                <?php if ($value['type'] == 'project'): ?>
+                                    <?php if ( !is_null($value['project_logotype']) ): ?>
+                                        <figure class="figure-img">
+                                            <img src="{$path.uploads}<?= $value['project_logotype'] ?>" alt="" class="img-fluid m-l-auto m-r-auto" style="width: 350px;">
+                                        </figure>
+                                    <?php endif; ?>
 
-                                <?php if ( !is_null($value['url']) ): ?>
-                                    <a href="/desarrollo/<?= $value['url'] ?>" class="btn btn-light btn-lg">Más información</a>
+                                    <?php if ( !is_null($value['url']) ): ?>
+                                        <a href="/desarrollo/<?= $value['url'] ?>" class="btn btn-light btn-lg">Más información</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                                <?php if ($value['type'] == 'blog'): ?>
+                                    <h2 class="m-b-20"><?= $value['title'][Configuration::$lang_default] ?></h2>
+                                    <a href="/articulo/<?= $value['url'] ?>" class="btn btn-light btn-lg">Leer más.</a>
                                 <?php endif; ?>
                             </div>
                         </div>

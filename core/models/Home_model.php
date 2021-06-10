@@ -8,15 +8,30 @@ class Home_model extends Model
 		parent::__construct();
 	}
 
+	public function get_blog( $id = null )
+	{
+		if ( is_null($id) )
+			return null;
+
+		return $this->database->select('blog', [
+			'url',
+			'title [Object]',
+			'image',
+		], [
+			'id' => $id
+		]);
+	}
+
 	public function get_slideshows()
 	{
 		return [
 			'home' => $this->database->select('slideshows', [
 				'id_key',
+				'table',
 				'pos_home',
 			], [
 				'AND' => [
-					'table' => 'projects',
+					'table' => ['projects', 'blog'],
 					'pos_home[!]' => null,
 				]
 			]),

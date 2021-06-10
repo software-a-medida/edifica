@@ -38,6 +38,29 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <div class="col-12 col-md-3">
+                    <h6 class="p-t-md-5">Posición en el slide de inicio</h6>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="label">
+                        <label>
+                            <select name="slide_home">
+                                <option value="0">No mostrar en el slide.</option>
+
+                                <?php if ( !isset($article['pos_home']) ): ?>
+                                    <?php $count_slideshow['pos_home'] += 1; ?>
+                                <?php endif; ?>
+
+                                <?php for ($i=1; $i <= $count_slideshow['pos_home']; $i++): ?>
+                                    <option value="<?= $i ?>" <?= ( isset($article['pos_home']) && !empty($article['pos_home']) && (int) $article['pos_home'] === $i ) ? 'selected' : '' ?> ><?= $i ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

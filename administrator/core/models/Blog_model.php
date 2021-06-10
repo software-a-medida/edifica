@@ -8,6 +8,16 @@ class Blog_model extends Model
 		parent::__construct();
 	}
 
+	public function count_slideshow()
+	{
+		return $this->database->count('slideshows', [
+			"AND" => [
+				"pos_home[!]" => null,
+				"table" => 'blog',
+			]
+		]);
+	}
+
 	public function get_articles()
 	{
 		return $this->database->select("blog", [
@@ -47,6 +57,7 @@ class Blog_model extends Model
 			'sm_description [Object]',
 			'sm_image',
 			'tags [Object]',
+			'pos_home',
 		], [
 			'id' => $id
 		]);
@@ -91,7 +102,8 @@ class Blog_model extends Model
 			'tags' => ( !is_null($data['tags']) ) ? explode(',', trim($data['tags'], ',')) : null,
 			'author' => Session::get_value('_vkye_id_user'),
 			'sm_title' => [ Configuration::$lang_default => $data['sm_title'] ],
-			'sm_description' => [ Configuration::$lang_default => $data['sm_description'] ]
+			'sm_description' => [ Configuration::$lang_default => $data['sm_description'] ],
+			'pos_home' => $data['slide_home']
 		];
 
 		if ( !empty($data['image_cover']['name']) )
@@ -114,8 +126,21 @@ class Blog_model extends Model
 
 			$this->database->insert('blog', $save);
 
-			if ( $this->database->id() )
-			/*  */ return [ 'status' => 'OK' ];
+			$id_blog = $this->database->id();
+
+			if ( $id_blog )
+			{
+				if ( !is_null($data['slide_home']) )
+				{
+					$this->database->insert('slideshows', [
+						'id_key' => $id_blog,
+						'table' => 'blog',
+						'pos_home' => $data['slide_home']
+					]);
+				}
+
+				/*  */ return [ 'status' => 'OK' ];
+			}
 			else
 			{
 				return [
@@ -131,6 +156,13 @@ class Blog_model extends Model
 				'id' => $data['id']
 			]);
 
+			$this->database->update('slideshows', [
+				'pos_home' => $data['slide_home']
+			], [
+				'id_key' => $data['id'],
+				'table' => 'blog'
+			]);
+
 			return [ 'status' => 'OK' ];
 		}
 	}
@@ -138,9 +170,15 @@ class Blog_model extends Model
 	public function delete_article( $data )
 	{
 		$this->database->update('blog', [
-			'status' => 'removed'
+			'status' => 'removed',
+			'pos_home' => null
 		],[
 			'id' => $data['id']
+		]);
+
+		$this->database->delete('slideshows', [
+			'id_key' => $data['id'],
+			'table' => 'blog'
 		]);
 	}
 

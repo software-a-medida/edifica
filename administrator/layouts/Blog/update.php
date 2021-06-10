@@ -34,7 +34,7 @@ $this->dependencies->add(['js', '{$path.js}pages/blog/update.js']);
         <!-- end page title end breadcrumb -->
 
         <form name="update_article" class="row font-14">
-            <?php echo $this->format->get_file( Security::DS(PATH_ADMINISTRATOR_LAYOUTS . 'Blog/tpl_form_blog.php'), ['categories' => $categories, 'article' => $article] ); ?>
+            <?php echo $this->format->get_file( Security::DS(PATH_ADMINISTRATOR_LAYOUTS . 'Blog/tpl_form_blog.php'), ['categories' => $categories, 'article' => $article, 'count_slideshow' => $count_slideshow] ); ?>
         </form>
     </div>
 </main>

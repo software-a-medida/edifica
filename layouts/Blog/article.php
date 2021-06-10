@@ -32,11 +32,11 @@ $this->dependencies->add(['meta', '@edificamx', ["name='twitter:creator'"]]);
                                 <figure>
                                     <img src="{$path.uploads}<?= $data[0]['image'] ?>" alt="" class="img-cover">
                                 </figure>
-                                <h1 class="text__h"></h1>
+                                <h1 class="text__h"><?= $data[0]['title'][Configuration::$lang_default] ?></h1>
                                 <ul class="list-inline m-0 m-b-50">
                                     <li class="list-inline-item"><?= $data[0]['author'] ?></li>
                                     <li class="list-inline-item"><?= Dates::formatted_date($data[0]['publication_date']) ?></li>
-                                    <li class="list-inline-item"><?= $data[0]['category'][Configuration::$lang_default] ?></li>
+                                    <li class="list-inline-item"><?= ( !is_null($data[0]['category']) ) ? $data[0]['category'][Configuration::$lang_default] : 'Sin categoría.' ?></li>
                                 </ul>
                             </header>
                             <main>

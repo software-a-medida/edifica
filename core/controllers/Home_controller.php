@@ -25,12 +25,32 @@ class Home_controller extends Controller
 		{
 			$key = array_search($value['id_key'], array_column($projects, 'id'));
 
-			$slideshows_home[] = [
-				'image_cover' => $projects[$key]['image_cover'],
-				'project_logotype' => ( isset($projects[$key]['project_logotype']) ) ? $projects[$key]['project_logotype'] : null,
-				'url' => ( isset($projects[$key]['url']) ) ? $projects[$key]['url'] : null,
-				'position' => $value['pos_home']
-			];
+			if ( $value['table'] == 'projects' )
+			{
+				$slideshows_home[] = [
+					'type' => 'project',
+					'image_cover' => $projects[$key]['image_cover'],
+					'project_logotype' => ( isset($projects[$key]['project_logotype']) ) ? $projects[$key]['project_logotype'] : null,
+					'url' => ( isset($projects[$key]['url']) ) ? $projects[$key]['url'] : null,
+					'position' => $value['pos_home']
+				];
+			}
+
+			if ( $value['table'] == 'blog' )
+			{
+				$blog = $this->model->get_blog($value['id_key']);
+
+				if ( isset($blog[0]) && !empty($blog[0]) && !is_null($blog[0]) )
+				{
+					$slideshows_home[] = [
+						'type' => 'blog',
+						'image_cover' => $blog[0]['image'],
+						'url' => $blog[0]['url'],
+						'title' => $blog[0]['title'],
+						'position' => $value['pos_home']
+					];
+				}
+			}
 		}
 
 		foreach ( $slideshows['portfolio'] as $value )
