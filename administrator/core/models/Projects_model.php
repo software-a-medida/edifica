@@ -547,6 +547,14 @@ class Projects_model extends Model
 			$this->database->insert('media', $gallery);
 		}
 
+		$this->database->update('slideshows', [
+			'pos_home' => $data['slide_home'],
+			'pos_portfolio' => $data['slide_portfolio']
+		], [
+			'id_key' => $data['id'],
+			'table' => 'projects'
+		]);
+
 		return [ 'status' => 'OK' ];
 	}
 
@@ -644,6 +652,14 @@ class Projects_model extends Model
 		{
 			$this->database->insert('media', $gallery);
 		}
+
+		$this->database->update('slideshows', [
+			'pos_home' => $data['slide_home'],
+			'pos_portfolio' => $data['slide_portfolio']
+		], [
+			'id_key' => $data['id'],
+			'table' => 'projects'
+		]);
 
 		return [ 'status' => 'OK' ];
 	}
@@ -743,6 +759,14 @@ class Projects_model extends Model
 			$this->database->insert('media', $gallery);
 		}
 
+		$this->database->update('slideshows', [
+			'pos_home' => $data['slide_home'],
+			'pos_portfolio' => $data['slide_portfolio']
+		], [
+			'id_key' => $data['id'],
+			'table' => 'projects'
+		]);
+
 		return [ 'status' => 'OK' ];
 	}
 
@@ -756,6 +780,11 @@ class Projects_model extends Model
 	public function delete_project( $id = null )
 	{
 		if ( is_null($id) ) return;
+
+		$this->database->delete('slideshows', [
+			'id_key' => $id,
+			'table' => 'projects'
+		]);
 
 		return $this->database->delete('projects', [
 			'id' => $id

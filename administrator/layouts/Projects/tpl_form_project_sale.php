@@ -111,14 +111,13 @@
                         <div class="col-12 col-md-8">
                             <div class="label">
                                 <label>
+                                    <?php $count_slideshow['pos_home'] += 1; ?>
+                                    <?php $project['data']['slide_home'] = ( is_null($project['data']['slide_home']) ) ? 0 : $project['data']['slide_home']; ?>
                                     <select name="slide_home">
-                                        <option value="0">No mostrar en el slide.</option>
-                                        <?php if ( !isset($project['data']['name']) ): ?>
-                                            <?php $count_slideshow['pos_home'] += 1; ?>
-                                        <?php endif; ?>
+                                        <option value="0" <?= ( $project['data']['slide_home'] == 0 ) ? 'selected' : '' ?>>No mostrar en el slide.</option>
 
                                         <?php for ($i=1; $i <= $count_slideshow['pos_home']; $i++): ?>
-                                            <option value="<?= $i ?>" <?= ( isset($project['data']['slide_home']) && !empty($project['data']['slide_home']) && (int) $project['data']['slide_home'] === $i ) ? 'selected' : '' ?> ><?= $i ?></option>
+                                            <option value="<?= $i ?>" <?= ( (int) $project['data']['slide_home'] === $i ) ? 'selected' : '' ?> ><?= $i ?></option>
                                         <?php endfor; ?>
                                     </select>
                                 </label>
@@ -134,14 +133,13 @@
                         <div class="col-12 col-md-8">
                             <div class="label">
                                 <label>
+                                    <?php $count_slideshow['pos_portfolio'] += 1; ?>
+                                    <?php $project['data']['slide_portfolio'] = ( is_null($project['data']['slide_portfolio']) ) ? 0 : $project['data']['slide_portfolio']; ?>
                                     <select name="slide_portfolio">
-                                        <option value="0">No mostrar en el slide.</option>
-                                        <?php if ( !isset($project['data']['name']) ): ?>
-                                            <?php $count_slideshow['pos_portfolio'] += 1; ?>
-                                        <?php endif; ?>
+                                        <option value="0" <?= ( $project['data']['slide_portfolio'] == 0 ) ? 'selected' : '' ?>>No mostrar en el slide.</option>
 
                                         <?php for ($i=1; $i <= $count_slideshow['pos_portfolio']; $i++): ?>
-                                            <option value="<?= $i ?>" <?= ( isset($project['data']['slide_portfolio']) && !empty($project['data']['slide_portfolio']) && (int) $project['data']['slide_portfolio'] === $i ) ? 'selected' : '' ?> ><?= $i ?></option>
+                                            <option value="<?= $i ?>" <?= ( (int) $project['data']['slide_portfolio'] === $i ) ? 'selected' : '' ?> ><?= $i ?></option>
                                         <?php endfor; ?>
                                     </select>
                                 </label>

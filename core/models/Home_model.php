@@ -22,29 +22,57 @@ class Home_model extends Model
 		]);
 	}
 
-	public function get_slideshows()
+	public function get_slideshows_home()
 	{
-		return [
-			'home' => $this->database->select('slideshows', [
-				'id_key',
-				'table',
-				'pos_home',
-			], [
-				'AND' => [
-					'table' => ['projects', 'blog'],
-					'pos_home[!]' => null,
-				]
-			]),
-			'portfolio' => $this->database->select('slideshows', [
-				'id_key',
-				'pos_portfolio',
-			], [
-				'AND' => [
-					'table' => 'projects',
-					'pos_portfolio[!]' => null,
-				]
-			]),
-		];
+		return $this->database->select('slideshows', [
+			'id',
+			'id_key',
+			'table',
+			'pos_home',
+		], [
+			'pos_home[!]' => null,
+			'ORDER' => [
+				'pos_home' => 'ASC',
+				'id' => 'DESC',
+			]
+		]);
+		// return [
+		// 	'home' => $this->database->select('slideshows', [
+		// 		'id_key',
+		// 		'table',
+		// 		'pos_home',
+		// 	], [
+		// 		'AND' => [
+		// 			'table' => ['projects', 'blog'],
+		// 			'pos_home[!]' => null,
+		// 		]
+		// 	]),
+		// 	'portfolio' => $this->database->select('slideshows', [
+		// 		'id_key',
+		// 		'pos_portfolio',
+		// 	], [
+		// 		'AND' => [
+		// 			'table' => 'projects',
+		// 			'pos_portfolio[!]' => null,
+		// 		]
+		// 	]),
+		// ];
+	}
+
+	public function get_slideshows_portfolio()
+	{
+		return $this->database->select('slideshows', [
+			'id',
+			'id_key',
+			'table',
+			'pos_portfolio',
+		], [
+			'pos_portfolio[!]' => null,
+			'ORDER' => [
+				'pos_portfolio' => 'ASC',
+				'id' => 'DESC',
+			]
+		]);
 	}
 
 	public function get_projects( $id = null )
