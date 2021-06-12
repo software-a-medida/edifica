@@ -62,10 +62,10 @@ $this->dependencies->add(['js', '{$path.js}pages/developments.js?v=1.0.1']);
                                 <div class="content">
                                     <p class="h5"><strong class="d-block"><?= $value['data']['name'] ?></strong> <?= $value['data']['title'] ?></p>
                                 </div>
-                                <?php if ( isset($value['gallery']) ): ?>
+                                <?php if ( isset($value['gallery_ready_constructions']) ): ?>
                                     <div class="d-none">
-                                        <?php for ($i=0; $i < count($value['gallery']); $i++): ?>
-                                            <a rel="<?= $value['id'] ?>_under_construction_gallery" href="{$path.uploads}<?= $value['gallery'][$i] ?>" class="fancybox"><img src="{$path.uploads}<?= $value['gallery'][$i] ?>" alt="" /></a>
+                                        <?php for ($i=0; $i < count($value['gallery_ready_constructions']); $i++): ?>
+                                            <a rel="<?= $value['id'] ?>_under_construction_gallery" href="{$path.uploads}<?= $value['gallery_ready_constructions'][$i] ?>" class="fancybox"><img src="{$path.uploads}<?= $value['gallery_ready_constructions'][$i] ?>" alt="" /></a>
                                         <?php endfor; ?>
                                     </div>
                                 <?php endif; ?>
@@ -95,10 +95,10 @@ $this->dependencies->add(['js', '{$path.js}pages/developments.js?v=1.0.1']);
                                 <div class="content">
                                     <p class="h5"><strong class="d-block"><?= $value['data']['name'] ?></strong> <?= $value['data']['title'] ?></p>
                                 </div>
-                                <?php if ( isset($value['gallery']) ): ?>
+                                <?php if ( isset($value['gallery_deliveries']) ): ?>
                                     <div class="d-none">
-                                        <?php for ($i=0; $i < count($value['gallery']); $i++): ?>
-                                            <a rel="<?= $value['id'] ?>_finished_gallery" href="{$path.uploads}<?= $value['gallery'][$i] ?>" class="fancybox"><img src="{$path.uploads}<?= $value['gallery'][$i] ?>" alt="" /></a>
+                                        <?php for ($i=0; $i < count($value['gallery_deliveries']); $i++): ?>
+                                            <a rel="<?= $value['id'] ?>_finished_gallery" href="{$path.uploads}<?= $value['gallery_deliveries'][$i] ?>" class="fancybox"><img src="{$path.uploads}<?= $value['gallery_deliveries'][$i] ?>" alt="" /></a>
                                         <?php endfor; ?>
                                     </div>
                                 <?php endif; ?>

@@ -22,10 +22,10 @@
             <a href="/inversion" class="btn btn-link btn-light btn-block text-left">Inversionistas</a>
         </li>
         <li class="list-inline">
-            <a href="/construccion" class="btn btn-link btn-light btn-block text-left p-b-0">Construcción</a>
+            <a href="/construccion" class="btn btn-link btn-light btn-block text-left">Construcción</a>
         </li>
         <li class="list-inline">
-            <a href="/construccion#portafolio" class="btn btn-link btn-light btn-block text-left p-b-0">Portafolio</a>
+            <a href="/construccion#portafolio" class="btn btn-link btn-light btn-block text-left">Portafolio</a>
         </li>
         <li class="list-inline">
             <a href="/acerca" class="btn btn-link btn-light btn-block text-left">¿Quiénes somos?</a>
