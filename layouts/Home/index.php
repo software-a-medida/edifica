@@ -8,7 +8,7 @@ $this->dependencies->add(['js', '{$path.plugins}OwlCarousel2-2.3.4/owl.carousel.
 $this->dependencies->add(['css', '{$path.plugins}fancybox-2.1.7/source/jquery.fancybox.css?v=2.1.7']);
 $this->dependencies->add(['js', '{$path.plugins}fancybox-2.1.7/source/jquery.fancybox.pack.js?v=2.1.7']);
 
-$this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.2']);
+$this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
 ?>
 
 <div id="page">
@@ -203,18 +203,92 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.2']);
                                         <img src="{$path.uploads}<?= $value['image_cover'] ?>" alt="" class="img-cover">
                                     </figure>
                                 </div> -->
-                                <?php if ( !empty($value['gallery']) ): ?>
-                                    <?php for ($i=0; $i < count($value['gallery']); $i++): ?>
+                                <?php if ( !empty($value['gallery_deliveries']) ): ?>
+                                    <?php for ($i=0; $i < count($value['gallery_deliveries']); $i++): ?>
                                         <div class="item">
                                             <figure>
-                                                <img src="{$path.uploads}<?= $value['gallery'][$i] ?>" alt="" class="img-cover">
+                                                <img src="{$path.uploads}<?= $value['gallery_deliveries'][$i] ?>" alt="" class="img-cover">
                                             </figure>
                                         </div>
                                     <?php endfor; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div id="slideshow-projects-buttons" class="owl-controls">
+                        <div slideshow-projects-buttons class="owl-controls">
+                            <button class="prev"><i class="fa fa-angle-left"></i></button>
+                            <button class="next"><i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-t-50 p-b-50">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center">
+                        <div class="text-center">
+                            <h1 class="section-title">Construye tu proyecto con nosotros</h1>
+                            <a class="#r1" href="/construccion#portafolio" class="btn btn-dark btn-md">Portafolio</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7" style="position: relative;">
+                        <div class="slideshow-projects owl-carousel owl-theme">
+                            <?php foreach ($slideshows_portfolio as $key => $value): ?>
+                                <!-- <div class="item">
+                                    <figure>
+                                        <img src="{$path.uploads}<?= $value['image_cover'] ?>" alt="" class="img-cover">
+                                    </figure>
+                                </div> -->
+                                <?php if ( !empty($value['gallery_ready_constructions']) ): ?>
+                                    <?php for ($i=0; $i < count($value['gallery_ready_constructions']); $i++): ?>
+                                        <div class="item">
+                                            <figure>
+                                                <img src="{$path.uploads}<?= $value['gallery_ready_constructions'][$i] ?>" alt="" class="img-cover">
+                                            </figure>
+                                        </div>
+                                    <?php endfor; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <div slideshow-projects-buttons class="owl-controls">
+                            <button class="prev"><i class="fa fa-angle-left"></i></button>
+                            <button class="next"><i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-t-50 p-b-50">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center">
+                        <div class="text-center">
+                            <h1 class="section-title">Construye tu proyecto con nosotros</h1>
+                            <a class="#r1" href="/construccion#portafolio" class="btn btn-dark btn-md">Portafolio</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7" style="position: relative;">
+                        <div class="slideshow-projects owl-carousel owl-theme">
+                            <?php foreach ($slideshows_portfolio as $key => $value): ?>
+                                <!-- <div class="item">
+                                    <figure>
+                                        <img src="{$path.uploads}<?= $value['image_cover'] ?>" alt="" class="img-cover">
+                                    </figure>
+                                </div> -->
+                                <?php if ( !empty($value['gallery_portfolio']) ): ?>
+                                    <?php for ($i=0; $i < count($value['gallery_portfolio']); $i++): ?>
+                                        <div class="item">
+                                            <figure>
+                                                <img src="{$path.uploads}<?= $value['gallery_portfolio'][$i] ?>" alt="" class="img-cover">
+                                            </figure>
+                                        </div>
+                                    <?php endfor; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <div slideshow-projects-buttons class="owl-controls">
                             <button class="prev"><i class="fa fa-angle-left"></i></button>
                             <button class="next"><i class="fa fa-angle-right"></i></button>
                         </div>

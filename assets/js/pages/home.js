@@ -23,12 +23,12 @@ $( document ).ready(function ()
         autoHeight:true
     });
 
-    $('#slideshow-projects-buttons .prev').on('click', function ()
+    $('[slideshow-projects-buttons] .prev').on('click', function ()
     {
         owlSlideshowProjects.trigger('prev.owl.carousel');
     });
 
-    $('#slideshow-projects-buttons .next').on('click', function ()
+    $('[slideshow-projects-buttons] .next').on('click', function ()
     {
         owlSlideshowProjects.trigger('next.owl.carousel');
     });

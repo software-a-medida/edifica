@@ -26,7 +26,9 @@ class Building_controller extends Controller
 			$slideshows_portfolio[] = [
 				'image_cover' => $projects[$key]['image_cover'],
 				'name' => $projects[$key]['data']['name'],
-				'gallery' => ( isset($projects[$key]['gallery_portfolio']) && !empty($projects[$key]['gallery_portfolio']) ) ? $projects[$key]['gallery_portfolio'] : [],
+				'gallery_deliveries' => ( isset($projects[$key]['gallery_deliveries']) && !empty($projects[$key]['gallery_deliveries']) ) ? $projects[$key]['gallery_deliveries'] : [],
+				'gallery_ready_constructions' => ( isset($projects[$key]['gallery_ready_constructions']) && !empty($projects[$key]['gallery_ready_constructions']) ) ? $projects[$key]['gallery_ready_constructions'] : [],
+				'gallery_portfolio' => ( isset($projects[$key]['gallery_portfolio']) && !empty($projects[$key]['gallery_portfolio']) ) ? $projects[$key]['gallery_portfolio'] : [],
 				'position' => $value['pos_portfolio']
 			];
 		}
