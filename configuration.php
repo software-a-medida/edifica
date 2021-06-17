@@ -141,7 +141,7 @@ class Configuration
 	 *
      * @var string $db_host
      */
-	public static $db_host = 'localhost';
+	public static $db_host = '162.241.62.131';
 
 	/**
      * Nombre de la base de datos
