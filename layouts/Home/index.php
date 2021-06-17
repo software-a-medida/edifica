@@ -8,7 +8,7 @@ $this->dependencies->add(['js', '{$path.plugins}OwlCarousel2-2.3.4/owl.carousel.
 $this->dependencies->add(['css', '{$path.plugins}fancybox-2.1.7/source/jquery.fancybox.css?v=2.1.7']);
 $this->dependencies->add(['js', '{$path.plugins}fancybox-2.1.7/source/jquery.fancybox.pack.js?v=2.1.7']);
 
-$this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
+$this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.4']);
 ?>
 
 <div id="page">
@@ -196,7 +196,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
                         </div>
                     </div>
                     <div class="col-12 col-md-7" style="position: relative;">
-                        <div class="slideshow-projects owl-carousel owl-theme">
+                        <div class="slideshow-projects gallery_portfolio owl-carousel owl-theme">
                             <?php foreach ($slideshows_portfolio as $key => $value): ?>
                                 <?php if ( !empty($value['gallery_portfolio']) ): ?>
                                     <?php for ($i=0; $i < count($value['gallery_portfolio']); $i++): ?>
@@ -209,7 +209,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div slideshow-projects-buttons class="owl-controls">
+                        <div slideshow-projects-buttons class="owl-controls gallery_portfolio">
                             <button class="prev"><i class="fa fa-angle-left"></i></button>
                             <button class="next"><i class="fa fa-angle-right"></i></button>
                         </div>
@@ -222,7 +222,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-md-7" style="position: relative;">
-                        <div class="slideshow-projects owl-carousel owl-theme">
+                        <div class="slideshow-projects gallery_deliveries owl-carousel owl-theme">
                             <?php foreach ($slideshows_portfolio as $key => $value): ?>
                                 <?php if ( !empty($value['gallery_deliveries']) ): ?>
                                     <?php for ($i=0; $i < count($value['gallery_deliveries']); $i++): ?>
@@ -235,7 +235,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div slideshow-projects-buttons class="owl-controls">
+                        <div slideshow-projects-buttons class="owl-controls gallery_deliveries">
                             <button class="prev"><i class="fa fa-angle-left"></i></button>
                             <button class="next"><i class="fa fa-angle-right"></i></button>
                         </div>
@@ -258,7 +258,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
                         </div>
                     </div>
                     <div class="col-12 col-md-7" style="position: relative;">
-                        <div class="slideshow-projects owl-carousel owl-theme">
+                        <div class="slideshow-projects gallery_ready_constructions owl-carousel owl-theme">
                             <?php foreach ($slideshows_portfolio as $key => $value): ?>
                                 <?php if ( !empty($value['gallery_ready_constructions']) ): ?>
                                     <?php for ($i=0; $i < count($value['gallery_ready_constructions']); $i++): ?>
@@ -271,7 +271,7 @@ $this->dependencies->add(['js', '{$path.js}pages/home.js?v=1.0.3']);
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
-                        <div slideshow-projects-buttons class="owl-controls">
+                        <div slideshow-projects-buttons class="owl-controls gallery_ready_constructions">
                             <button class="prev"><i class="fa fa-angle-left"></i></button>
                             <button class="next"><i class="fa fa-angle-right"></i></button>
                         </div>

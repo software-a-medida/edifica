@@ -5,7 +5,7 @@ $this->dependencies->add(['css', '{$path.plugins}OwlCarousel2-2.3.4/assets/owl.c
 $this->dependencies->add(['css', '{$path.plugins}OwlCarousel2-2.3.4/assets/owl.theme.default.min.css']);
 $this->dependencies->add(['js', '{$path.plugins}OwlCarousel2-2.3.4/owl.carousel.min.js']);
 
-$this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
+$this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.4']);
 ?>
 
 <div id="page">
@@ -58,7 +58,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
             <div class="container-fluid" style="position: relative;">
                 <h1 class="section-title">Galería de entregas</h1>
 
-                <div class="slideshow-projects owl-carousel owl-theme">
+                <div class="slideshow-projects gallery_deliveries owl-carousel owl-theme">
                     <?php foreach ($slideshows_portfolio as $key => $value): ?>
                         <?php if ( !empty($value['gallery_deliveries']) ): ?>
                             <?php for ($i=0; $i < count($value['gallery_deliveries']); $i++): ?>
@@ -77,7 +77,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
                     <?php endforeach; ?>
                 </div>
 
-                <div slideshow-projects-buttons class="owl-controls">
+                <div slideshow-projects-buttons class="owl-controls gallery_deliveries">
                     <button class="prev"><i class="fa fa-angle-left"></i></button>
                     <button class="next"><i class="fa fa-angle-right"></i></button>
                 </div>
@@ -88,7 +88,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
             <div class="container-fluid" style="position: relative;">
                 <h1 class="section-title">Galería de construcciones listas</h1>
 
-                <div class="slideshow-projects owl-carousel owl-theme">
+                <div class="slideshow-projects gallery_ready_constructions owl-carousel owl-theme">
                     <?php foreach ($slideshows_portfolio as $key => $value): ?>
                         <?php if ( !empty($value['gallery_ready_constructions']) ): ?>
                             <?php for ($i=0; $i < count($value['gallery_ready_constructions']); $i++): ?>
@@ -107,7 +107,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
                     <?php endforeach; ?>
                 </div>
 
-                <div slideshow-projects-buttons class="owl-controls">
+                <div slideshow-projects-buttons class="owl-controls gallery_ready_constructions">
                     <button class="prev"><i class="fa fa-angle-left"></i></button>
                     <button class="next"><i class="fa fa-angle-right"></i></button>
                 </div>
@@ -118,7 +118,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
             <div class="container-fluid" style="position: relative;">
                 <h1 class="section-title">Portafolio</h1>
 
-                <div class="slideshow-projects owl-carousel owl-theme">
+                <div class="slideshow-projects gallery_portfolio owl-carousel owl-theme">
                     <?php foreach ($slideshows_portfolio as $key => $value): ?>
                         <?php if ( !empty($value['gallery_portfolio']) ): ?>
                             <?php for ($i=0; $i < count($value['gallery_portfolio']); $i++): ?>
@@ -137,7 +137,7 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.3']);
                     <?php endforeach; ?>
                 </div>
 
-                <div slideshow-projects-buttons class="owl-controls">
+                <div slideshow-projects-buttons class="owl-controls gallery_portfolio">
                     <button class="prev"><i class="fa fa-angle-left"></i></button>
                     <button class="next"><i class="fa fa-angle-right"></i></button>
                 </div>
