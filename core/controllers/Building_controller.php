@@ -36,4 +36,58 @@ class Building_controller extends Controller
 		echo $template = $this->view->render($this, 'index');
 	}
 
+	public function download()
+	{
+		$projects = $this->model->get_projects();
+
+		$gallery_portfolio = [];
+
+		foreach ( $projects as $value )
+		{
+			if ( isset($value['gallery_portfolio']) && !empty($value['gallery_portfolio']) )
+			{
+				$gallery_portfolio[] = $value['gallery_portfolio'];
+			}
+		}
+
+		$gallery_portfolio = array_reduce($gallery_portfolio, 'array_merge', array());
+
+		$zip = new ZipArchive();
+
+		$filename = date('d-m-Y') .'-'. $this->security->random_string(8);
+		$filename = PATH_UPLOADS . $filename .'.zip';
+
+		if ( $zip->open($filename, ZIPARCHIVE::CREATE) === true )
+		{
+			foreach ( $gallery_portfolio as $value )
+			{
+				$zip->addFile(PATH_UPLOADS . $value, $value);
+			}
+
+			$zip->close();
+
+			if( !empty($filename) && file_exists($filename) )
+			{
+				// Define headers
+				header("Cache-Control: public");
+				header("Content-Description: File Transfer");
+				header("Content-Disposition: attachment; filename=". basename($filename));
+				header("Content-Type: application/zip");
+				header("Content-Transfer-Encoding: binary");
+
+				// Read the file
+				readfile($filename);
+				exit;
+			}
+			else
+			{
+				echo 'The file does not exist.';
+			}
+		}
+		else
+		{
+			echo 'Error creando '.$filename;
+		}
+	}
+
 }

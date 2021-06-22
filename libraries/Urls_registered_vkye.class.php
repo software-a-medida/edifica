@@ -57,6 +57,11 @@ class Urls_registered_vkye
                 'method' => 'view'
             ],
 
+            '/download/portfolio' => [
+                'controller' => 'Building',
+                'method' => 'download'
+            ],
+
             '/iniciar-sesion' => [
                 'controller' => 'Pages',
                 'method' => 'login'
