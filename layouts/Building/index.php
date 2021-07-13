@@ -142,8 +142,12 @@ $this->dependencies->add(['js', '{$path.js}pages/building.js?v=1.0.4']);
                     <button class="next"><i class="fa fa-angle-right"></i></button>
                 </div>
 
-                <div class="button-items text-center p-t-50">
+                <!-- <div class="button-items text-center p-t-50">
                     <a href="/download/portfolio" class="btn btn-secondary btn-lg" target="_blank">Descargar imágenes del portafolio.</a>
+                </div> -->
+
+                <div class="button-items text-center p-t-50">
+                    <a href="{$path.images}portafolio.pdf" download="Portafolio Edifica 67.pdf" class="btn btn-secondary btn-lg" target="_blank">Descargar Portafolio.</a>
                 </div>
             </div>
         </section>
